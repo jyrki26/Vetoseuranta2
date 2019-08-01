@@ -9,3 +9,5 @@ Sovelluksen tarkoituksena on mahdollistaa käyttäjän vedonlyöntihistorian seu
 ## Heroku-osoite
 https://vetoseuranta2.herokuapp.com/
 
+## Käyttötapaukset
+1. https://github.com/jyrki26/Vetoseuranta2/blob/master/K%C3%A4ytt%C3%B6tapaus%201.txt
