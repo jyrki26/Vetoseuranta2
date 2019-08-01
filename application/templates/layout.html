@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Vetoseuranta</title>
+  </head>
+  
+  <body>
+    <h1>Vetoseuranta</h1>
+    {% block body %}
+      <p>
+        Content.
+      </p>
+    {% endblock %}
+  </body>
+  
+  <main>
+     <h3>Joukkueiden hallinta</h3>
+       <ul>
+	   <li><a href="{{ url_for('teams_index') }}">Näytä joukkueet</a></li>
+	   <li><a href="{{ url_for('teams_form') }}">Lisää joukkue</a></li>
+       </ul>
+   </main>
+</html>
