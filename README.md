@@ -5,3 +5,7 @@ Sovelluksen tarkoituksena on mahdollistaa käyttäjän vedonlyöntihistorian seu
 
 ## Tietokantakaavio
 ![alt text](https://github.com/jyrki26/Vetoseuranta2/blob/master/tietokantakaavio_1.jpg)
+
+## Heroku-osoite
+https://vetoseuranta2.herokuapp.com/
+
