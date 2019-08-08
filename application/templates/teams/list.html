@@ -1,20 +1,38 @@
 {% extends "layout.html" %}
 
 {% block body %}
-  <table>
+<table>
+  <thead>
     <tr>
-      <th>Joukkue</th>
+      <header>Joukkueet</header>
     </tr>
-    {% for team in teams %}
+  </thead>
+  <tbody>
     <tr>
-      <td>{{ team.name }}</td>
-	  <td>
-	    <form method="POST" action="{{ url_for('teams_change_name', team_id=team.id) }}">
-          <input type="text" name="name"/>
-          <input type="submit" value="Muuta joukkueen nimi"/>
-        </form>
-	  </td>
+      {% for team in teams %}
+      <td><b>{{ team.name }}</b></td>
+      <td>
+        <form method="POST" action="{{ url_for('teams_change_name', team_id=team.id) }}">
+      <td>
+        {{ form.name.label }}
+      </td>
+      <td>
+        {{ form.name }}
+      </td>
+      <td>
+        <ul>
+          {% for error in form.name.errors %}
+          <li>{{ error }}</li>
+          {% endfor %}
+        </ul>
+      </td>
+      <td colspan="2">
+        <input type="submit" value="Muuta nimi" />
+      </td>
+      </form>
+      </td>
     </tr>
     {% endfor %}
-  </table>
+  </tbody>
+</table>
 {% endblock %}
