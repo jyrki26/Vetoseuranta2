@@ -1,4 +1,5 @@
 from flask import redirect, render_template, request, url_for
+from flask_login import login_required
 
 from application import app, db
 from application.teams.models import Team
@@ -9,10 +10,12 @@ def teams_index():
     return render_template("teams/list.html", teams = Team.query.order_by(Team.name).all(), form = ChangeName())
 
 @app.route("/teams/new/")
+@login_required
 def teams_form():
     return render_template("teams/new_team.html", form = TeamForm())
 
 @app.route("/teams/<team_id>/", methods=["POST"])
+@login_required
 def teams_change_name(team_id):
     form = ChangeName(request.form)
 
@@ -26,6 +29,7 @@ def teams_change_name(team_id):
     return redirect(url_for("teams_index"))
     
 @app.route("/teams/", methods=["POST"])
+@login_required
 def teams_create():
     form = TeamForm(request.form)
 
