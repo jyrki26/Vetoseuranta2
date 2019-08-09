@@ -1,3 +1,0 @@
-Käyttötapaus
-
-Ohjelman ensimmäisessä vaiheessa vedonlyönnissä käytettäviä joukkueita pitää pystyä lisäämään ja niiden nimiä muokkaamaan tarvittaessa. Nimen muokkaaminen ei saa kuitenkaan vaikuttaa vetojen seurantaan, joten nimen muokkaamisen yhteydessä joukkueen yksilöivä tieto ei saa muuttua.
