@@ -13,4 +13,4 @@ https://vetoseuranta2.herokuapp.com/
 [Käyttötapaukset](https://github.com/jyrki26/Vetoseuranta2/blob/master/documentation/k%C3%A4ytt%C3%B6tapaukset.docx)
 
 ## Testikäyttäjä
-Testikäyttäjän nimi: hello<br/>Testikäyttäjän salasana: world<br/>Testikäyttäjää ei ole vielä lisätty.
+Testikäyttäjän nimi: hello<br/>Testikäyttäjän salasana: world
