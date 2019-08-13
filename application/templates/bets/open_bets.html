@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<table>
+    <thead>
+        <tr>
+            <header><b>Avoimet vedot</b></header>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th>Ottelupäivä</th>
+            <th>Kotijoukkue</th>
+            <th>Vierasjoukkue</th>
+            <th>Panos</th>
+            <th>Kerroin</th>
+            <th>Tulos</th>
+        </tr>
+        <tr>
+            {% for bet in bets %}
+            <td>{{ bet.date_played }}</td>
+            <td>{%for team in teams if team.id == bet.home_team_id%} {{team.name}} {%endfor%} </td>
+            <td>{%for team in teams if team.id == bet.away_team_id%} {{team.name}} {%endfor%} </td>
+            <td>{{bet.stake}} €</td>
+            <td>{{bet.odds}}</td>
+            <td>{{form.results}}</td>
+            </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
