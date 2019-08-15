@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, DateField, DecimalField, SelectMultipleField, validators
+from wtforms import StringField, DateField, DecimalField, SelectMultipleField, SelectField, validators
 from wtforms.widgets import CheckboxInput, ListWidget, TableWidget
 from wtforms.ext.sqlalchemy.fields import QuerySelectField
 from application import db
@@ -13,7 +13,7 @@ def get_teams():
 class BetForm(FlaskForm):
 
     date_played = DateField(
-        "Ottelupäivä", [validators.input_required()], format='%d.%m.%Y')
+        "Ottelupäivä (dd.mm.yyyy)", [validators.input_required()], format='%d.%m.%Y')
     stake = DecimalField("Panos", [validators.input_required()])
     odds = DecimalField("Kerroin", [validators.input_required()])
     home_team = QuerySelectField(
@@ -25,11 +25,15 @@ class BetForm(FlaskForm):
         csrf = False
 
 
-class MultiCheckboxField(SelectMultipleField):
-    widget = TableWidget()
-    option_widget = CheckboxInput()
-
-
 class OpenBetForm(FlaskForm):
-    Code = StringField('Code')
-    results = MultiCheckboxField('Tulos', choices=[('oikein', 'Oikein'), ('väärin', 'Väärin'), ('mitätön', 'Mitätön')])
+    results = SelectField('Tulos', choices=[('correct', 'Oikein'), ('failed', 'Väärin'), ('void', 'Mitätön'), ('delete', 'Poista veto')])
+    
+    class Meta:
+        csrf = False
+
+
+class BetSearchForm(FlaskForm):
+    search = SelectField('Vetojen tulokset', choices=[('correct', 'Oikein'), ('failed', 'Väärin'), ('void', 'Mitätön')])
+
+    class Meta:
+        csrf = False

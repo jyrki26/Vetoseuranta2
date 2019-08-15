@@ -1,6 +1,8 @@
 from application import db
 from application.models import Base
 
+from sqlalchemy.sql import text
+
 
 class Bet(Base):
 
@@ -24,3 +26,19 @@ class Bet(Base):
         self.home_team_id = home_team_id
         self.away_team_id = away_team_id
         self.account_id = account_id
+
+    def changeResult(self, result):
+        self.result = result
+    
+    @staticmethod
+    def find_bet_results(account_id, result):
+        stmt = text("SELECT * FROM Bet"
+                        " LEFT JOIN Account ON Account.id = Bet.Account_id "
+                        " WHERE (Bet.result IS :result AND Bet.Account_id IS :account_id)"
+                        " ORDER BY Bet.date_played").params(account_id = account_id, result=result)
+        res = db.engine.execute(stmt)
+        response = []
+        for row in res:
+            response.append({"date_played":row[3], "home_team_id":row[7], "away_team_id":row[8], "stake":row[4], "odds":row[5]})
+
+        return response

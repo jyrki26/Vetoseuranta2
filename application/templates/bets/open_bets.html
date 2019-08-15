@@ -23,7 +23,9 @@
             <td>{%for team in teams if team.id == bet.away_team_id%} {{team.name}} {%endfor%} </td>
             <td>{{bet.stake}} €</td>
             <td>{{bet.odds}}</td>
+            <form method="POST" action="{{ url_for('bet_change_status', bet_id=bet.id) }}">
             <td>{{form.results}}</td>
+            <td><input type="submit" value="Lähetä tulokset" /></td>
             </form>
             </td>
         </tr>

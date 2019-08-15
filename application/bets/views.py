@@ -4,7 +4,7 @@ from flask_login import login_required, current_user
 from application import app, db
 from application.bets.models import Bet
 from application.teams.models import Team
-from application.bets.forms import BetForm, OpenBetForm
+from application.bets.forms import BetForm, OpenBetForm, BetSearchForm
 
 @app.route("/bets/", methods=["GET"])
 @login_required
@@ -29,4 +29,38 @@ def bets_create():
     db.session().add(b)
     db.session().commit()
 
-    return redirect(url_for("teams_index"))
+    return redirect(url_for("open_bets"))
+
+@app.route("/bets/<bet_id>/", methods=["GET","POST"])
+@login_required
+def bet_change_status(bet_id):
+    form = OpenBetForm(request.form)
+
+    b = Bet.query.get(bet_id)
+    
+    d = form.results.data
+    if d == 'correct':
+        b.result = 1
+    if d == 'failed':
+        b.result = 2
+    if d == 'void':
+        b.result = 3
+    if d == 'delete':
+        db.session().delete(b)
+    
+    db.session().commit()
+    
+    return redirect(url_for("open_bets"))
+
+@app.route("/bets/search", methods=["GET", "POST"])
+@login_required
+def bet_search():
+    form = BetSearchForm(request.form)
+    return render_template("bets/search.html", find_results = Bet.find_bet_results(current_user.id, 1), teams = Team.query.all(), form = form)
+    d = form.search.data
+    if d == 'correct':
+        return render_template("bets/search.html", find_results = Bet.find_bet_results(current_user.id, 1), form = form)
+    if d == 'failed':
+        return render_template("bets/search.html", find_results = Bet.find_bet_results(current_user.id, 2), form = form)
+    if d == 'void':
+        return render_template("bets/search.html", find_results = Bet.find_bet_results(current_user.id, 3), form = form)
