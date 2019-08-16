@@ -1,7 +1,9 @@
 {% extends "layout.html" %}
 
 {% block body %}
+<table class="table table-sm table-striped">
 <form method="POST" action="{{ url_for('bets_create') }}">
+    <tr class="table-active">Lisää uusi veto</tr>
     <tr>
         <td>
             {{ form.date_played.label }}
@@ -69,4 +71,5 @@
         </td>
     </tr>
 </form>
+</table>
 {% endblock %}
