@@ -1,13 +1,9 @@
 {% extends "layout.html" %}
 
 {% block body %}
-<table>
-  <thead>
-    <tr>
-      <header>Joukkueet</header>
-    </tr>
-  </thead>
+<table class="table table-sm table-striped">
   <tbody>
+    <tr class="table-active">Joukkueet</tr>
     <tr>
       {% for team in teams %}
       <td><b>{{ team.name }}</b></td>
