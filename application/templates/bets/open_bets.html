@@ -1,14 +1,14 @@
 {% extends "layout.html" %}
 
 {% block body %}
-<table>
+<table class="table table-sm table-striped">
     <thead>
         <tr>
-            <header><b>Avoimet vedot</b></header>
+            <th>Avoimet vedot</th>
         </tr>
     </thead>
     <tbody>
-        <tr>
+        <tr class="table-active">
             <th>Ottelupäivä</th>
             <th>Kotijoukkue</th>
             <th>Vierasjoukkue</th>
@@ -25,7 +25,7 @@
             <td>{{bet.odds}}</td>
             <form method="POST" action="{{ url_for('bet_change_status', bet_id=bet.id) }}">
             <td>{{form.results}}</td>
-            <td><input type="submit" value="Lähetä tulokset" /></td>
+            <td><input type="submit" value="Lähetä tulos" /></td>
             </form>
             </td>
         </tr>
