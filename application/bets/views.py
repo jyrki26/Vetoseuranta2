@@ -52,15 +52,20 @@ def bet_change_status(bet_id):
     
     return redirect(url_for("open_bets"))
 
-@app.route("/bets/search", methods=["GET", "POST"])
+@app.route("/bets/search/", methods=["GET"])
 @login_required
 def bet_search():
+    return render_template("bets/search.html", find_results = Bet.find_bet_results(current_user.id, 1), teams = Team.query.all(), form = BetSearchForm())
+
+@app.route("/bets/search/", methods=["POST"])
+@login_required
+def bet_search_results():
     form = BetSearchForm(request.form)
-    return render_template("bets/search.html", find_results = Bet.find_bet_results(current_user.id, 1), teams = Team.query.all(), form = form)
+
     d = form.search.data
     if d == 'correct':
-        return render_template("bets/search.html", find_results = Bet.find_bet_results(current_user.id, 1), form = form)
+        return render_template("bets/search.html", find_results = Bet.find_bet_results(current_user.id, 1), teams = Team.query.all(), form = BetSearchForm())
     if d == 'failed':
-        return render_template("bets/search.html", find_results = Bet.find_bet_results(current_user.id, 2), form = form)
+        return render_template("bets/search.html", find_results = Bet.find_bet_results(current_user.id, 2), teams = Team.query.all(), form = BetSearchForm())
     if d == 'void':
-        return render_template("bets/search.html", find_results = Bet.find_bet_results(current_user.id, 3), form = form)
+        return render_template("bets/search.html", find_results = Bet.find_bet_results(current_user.id, 3), teams = Team.query.all(), form = BetSearchForm())
