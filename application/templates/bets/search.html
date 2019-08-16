@@ -1,17 +1,17 @@
 {% extends "layout.html" %}
 
 {% block body %}
-<table>
+<table class="table table-sm">
     <thead>
         <tr>
             <header><b>Vetohistoria</b></header>
         </tr>
     </thead>
     <tbody>
-            <form method="POST" action="{{ url_for('bet_search') }}">
+            <form method="POST" action="{{ url_for('bet_search_results') }}">
                     <td>{{form.search}}</td>
                     <td><input type="submit" value="Näytä vedot" /></td>
-        <tr>
+        <tr class="table-active">
             <th>Ottelupäivä</th>
             <th>Kotijoukkue</th>
             <th>Vierasjoukkue</th>
