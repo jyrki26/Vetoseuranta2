@@ -26,6 +26,9 @@
           <a class="nav-link" href="{{ url_for('bets_form') }}">Lisää uusi veto</a>
         </li>
         <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('bet_search') }}">Vetohistoria</a>
+          </li>
+        <li class="nav-item">
           <a class="nav-link" href="{{ url_for('teams_index') }}">Näytä joukkueet</a>
         </li>
         <li class="nav-item">
@@ -42,7 +45,7 @@
     </div>
     </nav>
 
-    <main role="main" class="container">
+    <main>
       {% block body %}
       <p>
         Content.
