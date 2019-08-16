@@ -6,6 +6,7 @@ from application.teams.models import Team
 from application.teams.forms import TeamForm, ChangeName
 
 @app.route("/teams", methods=["GET"])
+@login_required
 def teams_index():
     return render_template("teams/list.html", teams = Team.query.order_by(Team.name).all(), form = ChangeName())
 
