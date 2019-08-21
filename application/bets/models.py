@@ -33,9 +33,9 @@ class Bet(Base):
     @staticmethod
     def find_bet_results(account_id, result):
         stmt = text("SELECT * FROM Bet"
-                        " LEFT JOIN Account ON Account.id = Bet.Account_id "
-                        " WHERE Bet.result IS :result AND Bet.Account_id IS :account_id"
-                        " ORDER BY Bet.date_played").params(account_id = account_id, result=result)
+                     " LEFT JOIN Account ON Account.id = Bet.Account_id "
+                     " WHERE (Bet.result IS :result AND Bet.Account_id IS :account_id)"
+                     " ORDER BY Bet.date_played").params(account_id = account_id, result=result)
         res = db.engine.execute(stmt)
         response = []
         for row in res:
