@@ -57,7 +57,7 @@ def bet_change_status(bet_id):
 def bet_search():
     return render_template("bets/search.html", find_results = Bet.find_bet_results(current_user.id, 1), teams = Team.query.all(), form = BetSearchForm())
 
-@app.route("/bets/search/", methods=["POST"])
+@app.route("/bets/search/", methods=["GET", "POST"])
 @login_required
 def bet_search_results():
     form = BetSearchForm(request.form)
