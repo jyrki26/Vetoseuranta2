@@ -1,5 +1,6 @@
 from application import db
 from application.models import Base
+from application.auth.models import Account
 
 from sqlalchemy.sql import text
 
