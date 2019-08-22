@@ -32,11 +32,11 @@ class Bet(Base):
         self.result = result
     
     @staticmethod
-    def find_bet_results(account_id, result):
+    def find_bet_results(account_id):
         stmt = text("SELECT * FROM bet"
                      " LEFT JOIN account ON account.id = bet.account_id "
-                     " WHERE (bet.result IS :result AND account.id IS :account_id)"
-                     " ORDER BY bet.date_played").params(account_id = account_id, result=result)
+                     " WHERE (bet.result IS 1 AND account.id IS :account_id)"
+                     " ORDER BY bet.date_played").params(account_id = account_id)
         res = db.engine.execute(stmt)
         response = []
         for row in res:
