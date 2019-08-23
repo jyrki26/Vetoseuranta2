@@ -1,22 +1,22 @@
 from flask import redirect, render_template, request, url_for
-from flask_login import login_required
+from flask_login import current_user
 
-from application import app, db
+from application import app, db, login_required
 from application.teams.models import Team
 from application.teams.forms import TeamForm, ChangeName
 
 @app.route("/teams", methods=["GET"])
-@login_required
+@login_required(role="ANY")
 def teams_index():
     return render_template("teams/list.html", teams = Team.query.order_by(Team.name).all(), form = ChangeName())
 
 @app.route("/teams/new/")
-@login_required
+@login_required(role='1')
 def teams_form():
     return render_template("teams/new_team.html", form = TeamForm())
 
 @app.route("/teams/<team_id>/", methods=["POST"])
-@login_required
+@login_required(role='1')
 def teams_change_name(team_id):
     form = ChangeName(request.form)
 
@@ -30,7 +30,7 @@ def teams_change_name(team_id):
     return redirect(url_for("teams_index"))
     
 @app.route("/teams/", methods=["POST"])
-@login_required
+@login_required(role="ANY")
 def teams_create():
     form = TeamForm(request.form)
 

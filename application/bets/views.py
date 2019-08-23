@@ -1,23 +1,23 @@
 from flask import redirect, render_template, request, url_for
-from flask_login import login_required, current_user
+from flask_login import current_user
 
-from application import app, db
+from application import app, db, login_required
 from application.bets.models import Bet
 from application.teams.models import Team
 from application.bets.forms import BetForm, OpenBetForm, BetSearchForm
 
 @app.route("/bets/", methods=["GET"])
-@login_required
+@login_required(role="ANY")
 def open_bets():
     return render_template("bets/open_bets.html", bets = Bet.query.filter_by(result=4).order_by(Bet.date_played).all(), teams = Team.query.all(), form = OpenBetForm())
 
 @app.route("/bets/new/", methods=["GET"])
-@login_required
+@login_required(role="ANY")
 def bets_form():
     return render_template("bets/new_bet.html", form = BetForm())
 
 @app.route("/bets/new", methods=["GET", "POST"])
-@login_required
+@login_required(role="ANY")
 def bets_create():
     form = BetForm(request.form)
 
@@ -32,7 +32,7 @@ def bets_create():
     return redirect(url_for("open_bets"))
 
 @app.route("/bets/<bet_id>/", methods=["GET","POST"])
-@login_required
+@login_required(role="ANY")
 def bet_change_status(bet_id):
     form = OpenBetForm(request.form)
 
@@ -53,12 +53,12 @@ def bet_change_status(bet_id):
     return redirect(url_for("open_bets"))
 
 @app.route("/bets/search/", methods=["GET"])
-@login_required
+@login_required(role="ANY")
 def bet_search():
     return render_template("bets/search.html", find_results = Bet.find_bet_results(current_user.id, 1), teams = Team.query.all(), form = BetSearchForm())
 
 @app.route("/bets/search/", methods=["POST"])
-@login_required
+@login_required(role="ANY")
 def bet_search_results():
     form = BetSearchForm(request.form)
 

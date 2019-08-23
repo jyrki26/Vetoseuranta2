@@ -9,6 +9,8 @@ class User(Base):
     name = db.Column(db.String(144), nullable=False)
     username = db.Column(db.String(144), nullable=False)
     password = db.Column(db.String(144), nullable=False)
+    role_id = db.Column(db.Integer, db.ForeignKey(
+        'role.id'), nullable=False)
 
     bets = db.relationship("Bet", backref='account', lazy=True)
 
@@ -28,3 +30,15 @@ class User(Base):
 
     def is_authenticated(self):
         return True
+    
+    def roles(self):
+        return str(self.role_id)
+
+# User roles
+
+class Role(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String, nullable = False)
+
+    def __init__(self, name):
+        self.name = name
