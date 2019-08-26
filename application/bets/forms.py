@@ -4,10 +4,17 @@ from wtforms.widgets import CheckboxInput, ListWidget, TableWidget
 from wtforms.ext.sqlalchemy.fields import QuerySelectField
 from application import db
 from application.teams.models import Team
+from application.bets.models import Bet_result, Bet_type
 
 
 def get_teams():
     return Team.query.order_by(Team.name)
+
+def get_bet_types():
+    return Bet_type.query.order_by(Bet_type.type)
+
+def get_bet_results():
+    return Bet_result.query.order_by(Bet_result.result)
 
 
 class BetForm(FlaskForm):
@@ -20,6 +27,10 @@ class BetForm(FlaskForm):
         "Kotijoukkue", query_factory=get_teams, allow_blank=False)
     away_team = QuerySelectField(
         "Vierasjoukkue", query_factory=get_teams, allow_blank=False)
+    bet_type = QuerySelectField(
+        "Vedon tyyppi", query_factory=get_bet_types, allow_blank=False)
+    bet_result = QuerySelectField(
+        "Veto", query_factory=get_bet_results, allow_blank=False)
 
     class Meta:
         csrf = False

@@ -1,75 +1,91 @@
 {% extends "layout.html" %}
 
 {% block body %}
-<table class="table table-sm table-striped">
-<form method="POST" action="{{ url_for('bets_create') }}">
-    <tr class="table-active">Lisää uusi veto</tr>
-    <tr>
-        <td>
-            {{ form.date_played.label }}
-        </td>
-        <td>
-            {{ form.date_played }}
-        </td>
-        <td>
-            <ul>
-                {% for error in form.date_played.errors %}
-                <li>{{ error }}</li>
-                {% endfor %}
-            </ul>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            {{ form.stake.label }}
-        </td>
-        <td>
-            {{ form.stake }}
-        </td>
-        <td>
-            <ul>
-                {% for error in form.stake.errors %}
-                <li>{{ error }}</li>
-                {% endfor %}
-            </ul>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            {{ form.odds.label }}
-        </td>
-        <td>
-            {{ form.odds }}
-        </td>
-        <td>
-            <ul>
-                {% for error in form.odds.errors %}
-                <li>{{ error }}</li>
-                {% endfor %}
-            </ul>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            {{ form.home_team.label }}
-        </td>
-        <td>
-            {{ form.home_team }}
-        </td>
-    </tr>
-    <tr>
-        <td>
-            {{ form.away_team.label }}
-        </td>
-        <td>
-            {{ form.away_team }}
-        </td>
-    </tr>
-    <tr>
-        <td colspan="2">
-            <input type="submit" value="Lisää uusi veto" />
-        </td>
-    </tr>
-</form>
-</table>
+<div class="container">
+    <div class="px-0 col-sm-6 col-md-6 col-lg-6">
+        <table class="table table-bordered table table-sm table-striped">
+            <form method="POST" action="{{ url_for('bets_create') }}">
+                <thead><b>Lisää uusi veto</b></thead>
+                <tbody>
+                <tr>
+                    <td>
+                        {{ form.date_played.label }}
+                    </td>
+                    <td>
+                        {{ form.date_played }}
+                    </td>
+                    <ul>
+                        {% for error in form.date_played.errors %}
+                        <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                </tr>
+                <tr>
+                    <td>
+                        {{ form.stake.label }}
+                    </td>
+                    <td>
+                        {{ form.stake }}
+                    </td>
+                    <ul>
+                        {% for error in form.stake.errors %}
+                        <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                </tr>
+                <tr>
+                    <td>
+                        {{ form.odds.label }}
+                    </td>
+                    <td>
+                        {{ form.odds }}
+                    </td>
+                    <ul>
+                        {% for error in form.odds.errors %}
+                        <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                </tr>
+                <tr>
+                    <td>
+                        {{ form.home_team.label }}
+                    </td>
+                    <td>
+                        {{ form.home_team }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        {{ form.away_team.label }}
+                    </td>
+                    <td>
+                        {{ form.away_team }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        {{ form.bet_type.label }}
+                    </td>
+                    <td>
+                        {{ form.bet_type }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        {{ form.bet_result.label }}
+                    </td>
+                    <td>
+                        {{ form.bet_result }}
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="submit" value="Lisää uusi veto" />
+                    </td>
+                </tr>
+            </form>
+        </tbody>
+        </table>
+    </div>
+</div>
 {% endblock %}

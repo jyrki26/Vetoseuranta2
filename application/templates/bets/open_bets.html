@@ -1,35 +1,44 @@
 {% extends "layout.html" %}
 
 {% block body %}
-<table class="table table-sm table-striped">
-    <thead>
-        <tr>
-            <th>Avoimet vedot</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr class="table-active">
-            <th>Ottelupäivä</th>
-            <th>Kotijoukkue</th>
-            <th>Vierasjoukkue</th>
-            <th>Panos</th>
-            <th>Kerroin</th>
-            <th>Tulos</th>
-        </tr>
-        <tr>
-            {% for bet in bets %}
-            <td>{{ bet.date_played }}</td>
-            <td>{%for team in teams if team.id == bet.home_team_id%} {{team.name}} {%endfor%} </td>
-            <td>{%for team in teams if team.id == bet.away_team_id%} {{team.name}} {%endfor%} </td>
-            <td>{{bet.stake}} €</td>
-            <td>{{bet.odds}}</td>
-            <form method="POST" action="{{ url_for('bet_change_status', bet_id=bet.id) }}">
-            <td>{{form.results}}</td>
-            <td><input type="submit" value="Lähetä tulos" /></td>
-            </form>
-            </td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
+<div class="container">
+    <div class="px-0 col-sm-12 col-md-12 col-lg-12">
+        <table class="table table-bordered table table-sm table-striped">
+            <thead>
+                <b>Avoimet vedot</b>
+            </thead>
+            <tbody>
+                <tr class="table-active">
+                    <th>Ottelupäivä</th>
+                    <th>Kotijoukkue</th>
+                    <th>Vierasjoukkue</th>
+                    <th>Panos</th>
+                    <th>Kerroin</th>
+                    <th>Tyyppi</th>
+                    <th>Veto</th>
+                    <th>Tulos</th>
+                    <th>Lähetä tulos</th>
+                </tr>
+                <tr>
+                    {% for bet in bets %}
+                    <td>{{ bet.date_played }}</td>
+                    <td>{%for team in teams if team.id == bet.home_team_id%} {{team.name}} {%endfor%} </td>
+                    <td>{%for team in teams if team.id == bet.away_team_id%} {{team.name}} {%endfor%} </td>
+                    <td>{{bet.stake}} €</td>
+                    <td>{{bet.odds}}</td>
+                    <td>{%for bet_type in bet_types if bet_type.id == bet.bet_type_id%} {{bet_type.type}} {%endfor%}
+                    </td>
+                    <td>{%for bet_result in bet_results if bet_result.id == bet.bet_result_id%} {{bet_result.result}}
+                        {%endfor%}</td>
+                    <form method="POST" action="{{ url_for('bet_change_status', bet_id=bet.id) }}">
+                        <td>{{form.results}}</td>
+                        <td><input type="submit" value="Lähetä tulos" /></td>
+                    </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
 {% endblock %}

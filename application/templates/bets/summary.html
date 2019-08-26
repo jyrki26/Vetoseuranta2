@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<div class="container">
+  <div class="px-0 col-sm-2 col-md-2 col-lg-2">
+    <table class="table table-bordered table table-sm table-striped">
+      <thead><b>Yhteenveto</b></thead>
+      <tbody>
+        <tr class="table-active">
+          <th>Tulos</th>
+          <th>Määrä</th>
+        </tr>
+        <tr>
+          <td>Oikein</td>
+          <td>{% for bet in correct %} {{bet.volume}} {% endfor %}</td>
+        </tr>
+        <tr>
+          <td>Väärin</td>
+          <td>{% for bet in failed %} {{bet.volume}} {% endfor %}</td>
+        </tr>
+        <tr>
+          <td>Mitätön</td>
+          <td>{% for bet in void %} {{bet.volume}} {% endfor %}</td>
+        </tr>
+        <tr>
+          <td>Yhteensä</td>
+          <td>{% for bet in addition %} {{bet.volume}} {% endfor %}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

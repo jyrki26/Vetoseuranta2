@@ -1,28 +1,33 @@
 {% extends "layout.html" %}
 
 {% block body %}
-<table class="table table-sm">
-  <form method="POST" action="{{ url_for('teams_create') }}">
-    <tr class="table-active">Lisää uusi joukkue</tr>
-    <tr>
-      <td>
-        {{ form.name.label }}
-      </td>
-      <td>
-        {{ form.name }}
-      </td>
-      <td>
-        <ul>
-          {% for error in form.name.errors %}
-          <li>{{ error }}</li>
-          {% endfor %}
-        </ul>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="2">
-        <input type="submit" value="Lisää uusi joukkue" />
-      </td>
-    </tr>
-  </form>
-</table {% endblock %}
+<div class="container">
+  <div class="px-0 col-sm-6 col-md-6 col-lg-6 column">
+    <table class="table table-bordered table table-sm table-striped">
+      <form method="POST" action="{{ url_for('teams_create') }}">
+        <tr class="table-active"></tr>
+        <thead><b>Lisää uusi joukkue</b></thead>
+        <tr class="table-active">
+            <th>{{ form.name.label }}</th>
+            <th>Uusi nimi</th>
+          </tr>
+        <tr>
+          <td>
+            {{ form.name }}
+          </td>
+          <td colspan="2">
+            <input type="submit" value="Lisää uusi joukkue" />
+          </td>
+          <ul>
+            {% for error in form.name.errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+          </ul>
+        </tr>
+        <tr>
+        </tr>
+      </form>
+    </table>
+  </div>
+</div>
+{% endblock %}
