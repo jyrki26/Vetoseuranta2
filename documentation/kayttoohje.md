@@ -31,5 +31,4 @@ Kun veto on lisätty, se näkyy kohdassa Avoimet vedot. Kohdassa näkyvät vedon
 #### Vetohistoria
 Vetohistoria-sivulla voi tarkastella vetoja sen mukaan ovatko ne menneet oikein, väärin vai olleet mitättömiä valitsemalla pudotusvalikoista haluamansa tuloksen ja painamalla Näytä vedot -nappia.
 #### Yhteenveto
-Tällä sivulla näkyvät vetojen kokonaismäärä sekä oikein, väärin ja mitätöityjen vetojen määrät.
-
+Tällä sivulla näkyvät vetojen kokonaismäärä sekä oikein ja väärin päättyneiden ja mitätöityjen vetojen määrät.
