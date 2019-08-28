@@ -20,3 +20,6 @@ ADMIN<br/>
 Testikäyttäjän nimi: hello<br/>Testikäyttäjän salasana: world<br/>
 TAVALLINEN KÄYTTÄJÄ<br/>
 Testikäyttäjän nimi: testi<br/>Testikäyttäjän salasana: kayttaja
+
+## Käyttöohje
+[Käyttöohje](https://github.com/jyrki26/Vetoseuranta2/blob/master/documentation/kayttoohje.md)
