@@ -25,5 +25,11 @@ Näytä joukkueet-sivulla voi katsoa jo lisättyjä joukkueita ja tarvittaessa m
 ## Vetojen hallinta
 Vetojen hallinnan käyttäminen edellyttää, että edellisen kohdan kautta on lisätty vähintään kaksi joukkuetta.
 #### Lisää uusi veto
-Lisää uusi veto -kohdassa voi lisätä uuden vedon. Vedon tietoihin täytyy syöttää ottelupäivä, panos ja vedon kerroin. Ottelupäivä syötetään muodossa dd.mm.yyyy. Panoksessa vedon kertoimessa voi olla korkeintaan kaksi desimaalia ja desimaalierottimena käytetään pistettä. Näiden lisäksi kotijoukkue ja vierasjoukkue, vedon tyyppi ja vedon tasoitus/veto lisätään pudotusvalikoista.
+Lisää uusi veto -kohdassa voi lisätä uuden vedon. Vedon tietoihin täytyy syöttää ottelupäivä, panos ja vedon kerroin. Ottelupäivä syötetään muodossa dd.mm.yyyy. Panoksessa ja vedon kertoimessa voi olla korkeintaan kaksi desimaalia ja desimaalierottimena käytetään pistettä. Näiden lisäksi kotijoukkue ja vierasjoukkue, vedon tyyppi ja vedon tasoitus/veto lisätään pudotusvalikoista.
+#### Avoimet vedot
+Kun veto on lisätty, se näkyy kohdassa Avoimet vedot. Kohdassa näkyvät vedon tiedot. Kun veto on ratkennut, voi sen tuloksen päivittää tietokantaan tätä kautta valitsemalla tuloksen pudotusvalikosta ja painamalla Lähetä tulos -nappia. Mikäli on kirjannut virheellisen vedon, voi sen myös poistaa tätä kautta valitsemalla pudotusvalikosta Poista veto -valinnan.
+#### Vetohistoria
+Vetohistoria-sivulla voi tarkastella vetoja sen mukaan ovatko ne menneet oikein, väärin vai olleet mitättömiä valitsemalla pudotusvalikoista haluamansa tuloksen ja painamalla Näytä vedot -nappia.
+#### Yhteenveto
+Tällä sivulla näkyvät vetojen kokonaismäärä sekä oikein, väärin ja mitätöityjen vetojen määrät.
 
