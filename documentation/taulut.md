@@ -1,6 +1,6 @@
 # Vetoseuranta2 tietokantataulut
 
-## Account
+### Account
 CREATE TABLE account (
     id            INTEGER       NOT NULL,
     date_created  DATETIME,
@@ -18,7 +18,7 @@ CREATE TABLE account (
     REFERENCES role (id) 
 );
 
-## Bet
+### Bet
 CREATE TABLE bet (
     id            INTEGER  NOT NULL,
     date_created  DATETIME,
@@ -57,7 +57,7 @@ CREATE TABLE bet (
     REFERENCES account (id) 
 );
 
-## Bet_result
+### Bet_result
 CREATE TABLE bet_result (
     id     INTEGER      NOT NULL,
     result VARCHAR (40) NOT NULL,
@@ -66,7 +66,7 @@ CREATE TABLE bet_result (
     )
 );
 
-## Bet_type
+### Bet_type
 CREATE TABLE bet_type (
     id   INTEGER      NOT NULL,
     type VARCHAR (40) NOT NULL,
@@ -75,7 +75,7 @@ CREATE TABLE bet_type (
     )
 );
 
-## Bet_typeBet_result
+### Bet_typeBet_result
 CREATE TABLE bet_typeBet_result (
     bet_type   INTEGER,
     bet_result INTEGER,
@@ -89,7 +89,7 @@ CREATE TABLE bet_typeBet_result (
     REFERENCES bet_result (id) 
 );
 
-## Role
+### Role
 CREATE TABLE role (
     id   INTEGER NOT NULL,
     name VARCHAR NOT NULL,
@@ -98,7 +98,7 @@ CREATE TABLE role (
     )
 );
 
-## Team
+### Team
 CREATE TABLE team (
     id            INTEGER       NOT NULL,
     date_created  DATETIME,
