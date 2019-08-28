@@ -79,7 +79,7 @@ class Bet(Base):
 
         return response
 
-Bet_typeBet_results = db.Table('association', Base.metadata,
+Bet_typeBet_results = db.Table('bet_typeBet_result', Base.metadata,
     db.Column('bet_type', db.Integer, db.ForeignKey('bet_type.id')),
     db.Column('bet_result', db.Integer, db.ForeignKey('bet_result.id'))
 )
@@ -111,3 +111,43 @@ class Bet_result(db.Model):
 
     def __str__(self):
         return self.result
+
+# Initial database insertions
+
+def init_db():
+    if db.session.query(Bet_type).count() == 0:
+        ah = Bet_type("Aasialainen tasoitusveto")
+        eh = Bet_type("Eurooppalainen tasoitusveto")
+        
+        db.session.add(ah)
+        db.session.add(eh)
+
+        h1 = Bet_result("Koti -0,5")
+        h2 = Bet_result("Koti +0,5")
+        h3 = Bet_result("Koti -1")
+        h4 = Bet_result("Koti +1")
+
+        a1 = Bet_result("Vieras -0,5")
+        a2 = Bet_result("Vieras +0,5")
+        a3 = Bet_result("Vieras -1")
+        a4 = Bet_result("Vieras +1")
+
+        d = Bet_result("Tasapeli")
+
+        ah.bet_result.append(h1)
+        ah.bet_result.append(h2)
+        ah.bet_result.append(h3)
+        ah.bet_result.append(h4)
+
+        ah.bet_result.append(a1)
+        ah.bet_result.append(a2)
+        ah.bet_result.append(a3)
+        ah.bet_result.append(a4)
+
+        eh.bet_result.append(h3)
+        eh.bet_result.append(h4)
+        eh.bet_result.append(a3)
+        eh.bet_result.append(a4)
+        eh.bet_result.append(d)
+
+        db.session.commit()

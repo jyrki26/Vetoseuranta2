@@ -1,5 +1,24 @@
 {% extends "layout.html" %}
 
 {% block body %}
-  
+<div class="container">
+  <div class="px-0 col-sm-12 col-md-12 col-lg-12">
+    <div class="pt-3 list-group">
+      <li class="list-group-item list-group-item-dark">Vetojen hallinta</li>
+      <a href="{{ url_for('open_bets') }}" class="list-group-item list-group-item-action">Avoimet vedot</a>
+      <a href="{{ url_for('bets_form') }}" class="list-group-item list-group-item-action">Lisää uusi veto</a>
+      <a href="{{ url_for('bet_search') }}" class="list-group-item list-group-item-action">Vetohistoria</a>
+      <a href="{{ url_for('bet_summary') }}" class="list-group-item list-group-item-action">Yhteenveto</a>
+    </div>
+  </div>
+</div>
+<div class="container">
+    <div class="px-0 col-sm-12 col-md-12 col-lg-12">
+      <div class="pt-3 list-group">
+        <li class="list-group-item list-group-item-dark">Joukkueiden hallinta</li>
+        <a href="{{ url_for('teams_index') }}" class="list-group-item list-group-item-action">Näytä joukkueet</a>
+        <a href="{{ url_for('teams_form') }}" class="list-group-item list-group-item-action">Lisää joukkue</a>
+      </div>
+    </div>
+  </div>
 {% endblock %}

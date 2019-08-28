@@ -31,7 +31,7 @@ def bets_create():
 
     return redirect(url_for("open_bets"))
 
-@app.route("/bets/<bet_id>/", methods=["GET","POST"])
+@app.route("/bets/<bet_id>/", methods=["POST"])
 @login_required(role="ANY")
 def bet_change_status(bet_id):
     form = OpenBetForm(request.form)

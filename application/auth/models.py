@@ -42,3 +42,14 @@ class Role(db.Model):
 
     def __init__(self, name):
         self.name = name
+
+# Initial database insertions
+
+def init_db():
+    if db.session.query(Role).count() == 0:
+        admin = Role("ADMIN")
+        user = Role("USER")
+        
+        db.session.add(admin)
+        db.session.add(user)
+        db.session.commit()

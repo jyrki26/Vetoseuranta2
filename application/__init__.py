@@ -57,20 +57,20 @@ def login_required(role="ANY"):
     return wrapper
 
 # load application content    
-
 from application import views
 
 from application.auth import views
 from application.auth import models
+from application.auth.models import Role
 
 from application.teams import views
 from application.teams import models
 
 from application.bets import models
 from application.bets import views
+from application.bets.models import Bet_result, Bet_type
 
 # login functionality, part 2
-
 from application.auth.models import User
 from os import urandom
 app.config["SECRET_KEY"] = urandom(32)
@@ -83,5 +83,9 @@ def load_user(user_id):
 
 try: 
     db.create_all()
+
 except:
     pass
+
+auth.models.init_db()
+bets.models.init_db()
