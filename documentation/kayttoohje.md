@@ -20,14 +20,14 @@ Kirjautumisen jälkeen sovellus siirtyy pääsivulle. Pääsivulla on linkit kai
 
 ## Joukkueiden hallinta
 #### Lisää joukkue
-Joukkueen lisääminen tapahtuu syöttämällä joukkueen nimi ja painamalla Lisää joukkue -nappia. Mikäli nimi täyttää validaatiot lisätään joukkue tietokantaan.
+Joukkueen lisääminen tapahtuu syöttämällä joukkueen nimi ja painamalla Lisää joukkue -nappia. Mikäli nimi täyttää validaatiot, lisätään joukkue tietokantaan.
 #### Näytä joukkueet
 Näytä joukkueet-sivulla voi katsoa jo lisättyjä joukkueita ja tarvittaessa muokata joukkueiden nimiä. Muokkaaminen tapahtuu syöttämällä nimi Uusi nimi -kenttään ja painamalla Muuta nimi -nappia. Mikäli nimi täyttää validaatiot, muuttaa sovellus joukkueen nimen.
 
 ## Vetojen hallinta
 Vetojen hallinnan käyttäminen edellyttää, että edellisen kohdan kautta on lisätty vähintään kaksi joukkuetta.
 #### Lisää uusi veto
-Lisää uusi veto -kohdassa voi lisätä uuden vedon. Vedon tietoihin täytyy syöttää ottelupäivä, panos ja vedon kerroin. Ottelupäivä syötetään muodossa dd.mm.yyyy. Panoksessa ja vedon kertoimessa voi olla korkeintaan kaksi desimaalia ja desimaalierottimena käytetään pistettä. Näiden lisäksi kotijoukkue ja vierasjoukkue, vedon tyyppi ja vedon tasoitus/veto lisätään pudotusvalikoista.
+Lisää uusi veto -kohdassa voi lisätä uuden vedon. Vedon tietoihin täytyy syöttää ottelupäivä, panos ja vedon kerroin. Ottelupäivä syötetään muodossa dd.mm.yyyy. Panoksessa ja vedon kertoimessa voi olla korkeintaan kaksi desimaalia ja desimaalierottimena käytetään pistettä. Näiden lisäksi koti- ja vierasjoukkue, vedon tyyppi ja vedon tasoitus/veto lisätään pudotusvalikoista.
 #### Avoimet vedot
 Kun veto on lisätty, se näkyy kohdassa Avoimet vedot. Kohdassa näkyvät vedon tiedot. Kun veto on ratkennut, voi sen tuloksen päivittää tietokantaan tätä kautta valitsemalla tuloksen pudotusvalikosta ja painamalla Lähetä tulos -nappia. Mikäli on kirjannut virheellisen vedon, voi sen myös poistaa tätä kautta valitsemalla pudotusvalikosta Poista veto -valinnan.
 #### Vetohistoria
