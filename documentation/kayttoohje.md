@@ -14,7 +14,6 @@ Kun käyttäjä on luotu kirjaudutaan sovellukseen osoitteessa http://127.0.0.1:
 #### Herokussa käyttäminen
 Sovellus tulee olla asennettu Herokuun asennusohjeiden mukaisesti ja käyttäjä lisätty vastaavalla komennolla kuin paikallisesti käytettäessä sillä erotuksella, että lisääminen tehdään PostqreSQL:n kautta.
 
-
 ## Pääsivu
 Kirjautumisen jälkeen sovellus siirtyy pääsivulle. Pääsivulla on linkit kaikkiin sovelluksen osioihin. Linkit löytyvät myös yläpalkin kautta.
 
