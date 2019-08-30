@@ -51,7 +51,7 @@ DELETE FROM bet WHERE bet.id = Vedon id;
 ```
 
 #### Vetohistorian näyttäminen
-Käyttäjän tulee voida seurata myös ratkenneita vetojaan. Tämä tapahtuu vetohistorian kautta. Kysely on vastaava avoimien vetojen näyttämisessä, sillä erotuksella, että sarakkeeseen bet.result arvoksi annetaan 1, jos halutaan näyttää oikein menneet vedot, väärin menneille vedoilla 2 ja mitätöidyille 3. Kysely on siis seuraavalla
+Käyttäjän tulee voida seurata myös ratkenneita vetojaan. Tämä tapahtuu vetohistorian kautta. Kysely on vastaava avoimien vetojen näyttämisessä, sillä erotuksella, että sarakkeeseen bet.result arvoksi annetaan 1, jos halutaan näyttää oikein menneet vedot, väärin menneille vedoilla 2 ja mitätöidyille 3. Kysely on siis seuraava
 ```SQL
 SELECT bet.id AS bet_id, bet.date_created AS bet_date_created, bet.date_modified AS bet_date_modified, bet.date_played AS bet_date_played, bet.stake AS bet_stake, bet.odds AS bet_odds, bet.result AS bet_result, bet.home_team_id AS bet_home_team_id, bet.away_team_id AS bet_away_team_id, bet.bet_type_id AS bet_bet_type_id, bet.bet_result_id AS bet_bet_result_id, bet.account_id AS bet_account_id
 FROM bet
