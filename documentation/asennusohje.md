@@ -28,9 +28,9 @@ pip install -r requirements.txt
 
 #### Sovelluksen käynnistäminen
 Nyt sovellus on valmis käynnistettäväksi. Käynnistys tapahtuu antamalla sovelluksen kansiossa komentorivillä komento
-´´´console
+```console
 python3 run.py
-´´´
+```
 Sovellusta voi nyt käyttää osoitteessa http://127.0.0.1:5000/
 
 ## Asentaminen Herokuun
