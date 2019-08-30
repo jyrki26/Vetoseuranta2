@@ -22,7 +22,7 @@ TAVALLINEN KÄYTTÄJÄ<br/>
 Testikäyttäjän nimi: testi<br/>Testikäyttäjän salasana: kayttaja
 
 ## Asennusohje
-Todo
+[Asennusohje](https://github.com/jyrki26/Vetoseuranta2/blob/master/documentation/asennusohje.md)
 
 ## Käyttöohje
 [Käyttöohje](https://github.com/jyrki26/Vetoseuranta2/blob/master/documentation/kayttoohje.md)
