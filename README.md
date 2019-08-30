@@ -13,7 +13,7 @@ https://vetoseuranta2.herokuapp.com/
 [Tietokantataulut](https://github.com/jyrki26/Vetoseuranta2/blob/master/documentation/taulut.md)
 
 ## Käyttötapaukset
-[Käyttötapaukset](https://github.com/jyrki26/Vetoseuranta2/blob/master/documentation/k%C3%A4ytt%C3%B6tapaukset.docx)
+[Käyttötapaukset](https://github.com/jyrki26/Vetoseuranta2/blob/master/documentation/kayttotapaukset.md)
 
 ## Testikäyttäjä
 ADMIN<br/>
