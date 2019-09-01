@@ -22,8 +22,8 @@ class BetForm(FlaskForm):
 
     date_played = DateField(
         "Ottelupäivä (dd.mm.yyyy)", [validators.input_required()], format='%d.%m.%Y')
-    stake = DecimalField("Panos", [validators.input_required()], places=2)
-    odds = DecimalField("Kerroin", [validators.input_required()], places=2)
+    stake = DecimalField("Panos", [validators.input_required()], places=2, rounding=2)
+    odds = DecimalField("Kerroin", [validators.input_required()], places=2, rounding=2)
     home_team = QuerySelectField(
         "Kotijoukkue", query_factory=get_teams, allow_blank=False)
     away_team = QuerySelectField(

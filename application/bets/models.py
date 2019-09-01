@@ -50,7 +50,7 @@ class Bet(Base):
 
         return response
 
-
+    #Shows the bet volumes based on the result
     @staticmethod
     def show_bet_volumes(account_id, result):
         stmt = text("SELECT COUNT(bet.result)"
@@ -64,7 +64,8 @@ class Bet(Base):
             response.append({"volume":row[0]})
 
         return response
-
+    
+    #Shows the total number of decided bets
     @staticmethod
     def show_bet_count(account_id):
         stmt = text("SELECT COUNT(bet.result)"

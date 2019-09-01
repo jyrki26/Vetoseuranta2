@@ -87,5 +87,6 @@ try:
 except:
     pass
 
+# initial database data
 auth.models.init_db()
 bets.models.init_db()
