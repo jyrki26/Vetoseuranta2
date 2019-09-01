@@ -20,8 +20,12 @@ Kirjautumisen jälkeen sovellus siirtyy pääsivulle. Pääsivulla on linkit kai
 ## Joukkueiden hallinta
 #### Lisää joukkue
 Joukkueen lisääminen tapahtuu syöttämällä joukkueen nimi ja painamalla Lisää joukkue -nappia. Mikäli nimi täyttää validaatiot, lisätään joukkue tietokantaan.
+
 #### Näytä joukkueet
 Näytä joukkueet-sivulla voi katsoa jo lisättyjä joukkueita ja tarvittaessa muokata joukkueiden nimiä. Muokkaaminen tapahtuu syöttämällä nimi Uusi nimi -kenttään ja painamalla Muuta nimi -nappia. Mikäli nimi täyttää validaatiot, muuttaa sovellus joukkueen nimen.
+
+#### Poista joukkue
+Mahdollistaa virheellisesti lisätyn joukkueen poistamisen. Poistaminen ei onnistu, jos joukkuetta on jo käytetty vedossa.
 
 ## Vetojen hallinta
 Vetojen hallinnan käyttäminen edellyttää, että edellisen kohdan kautta on lisätty vähintään kaksi joukkuetta.
