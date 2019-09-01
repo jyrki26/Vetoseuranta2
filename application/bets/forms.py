@@ -3,6 +3,7 @@ from wtforms import StringField, DateField, DecimalField, SelectMultipleField, S
 from wtforms.widgets import CheckboxInput, ListWidget, TableWidget
 from wtforms.ext.sqlalchemy.fields import QuerySelectField
 from application import db
+from wtforms.validators import ValidationError
 from application.teams.models import Team
 from application.bets.models import Bet_result, Bet_type
 
@@ -15,14 +16,14 @@ def get_bet_types():
 
 def get_bet_results():
     return Bet_result.query.order_by(Bet_result.result)
-
+    
 
 class BetForm(FlaskForm):
 
     date_played = DateField(
         "Ottelupäivä (dd.mm.yyyy)", [validators.input_required()], format='%d.%m.%Y')
-    stake = DecimalField("Panos", [validators.input_required()])
-    odds = DecimalField("Kerroin", [validators.input_required()])
+    stake = DecimalField("Panos", [validators.input_required()], places=2)
+    odds = DecimalField("Kerroin", [validators.input_required()], places=2)
     home_team = QuerySelectField(
         "Kotijoukkue", query_factory=get_teams, allow_blank=False)
     away_team = QuerySelectField(
@@ -31,6 +32,10 @@ class BetForm(FlaskForm):
         "Vedon tyyppi", query_factory=get_bet_types, allow_blank=False)
     bet_result = QuerySelectField(
         "Veto", query_factory=get_bet_results, allow_blank=False)
+
+    def validate_away_team(form, field):
+        if field.data == form.home_team.data:
+            raise ValidationError('Koti- ja vierasjoukkue ei saa olla sama joukkue')
 
     class Meta:
         csrf = False

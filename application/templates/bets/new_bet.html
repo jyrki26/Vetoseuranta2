@@ -61,6 +61,11 @@
                     <td>
                         {{ form.away_team }}
                     </td>
+                    <ul>
+                            {% for error in form.away_team.errors %}
+                            <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
                 </tr>
                 <tr>
                     <td>
