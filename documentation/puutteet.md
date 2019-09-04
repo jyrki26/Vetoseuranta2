@@ -1,5 +1,5 @@
 # Sovelluksen puutteet ja jatkokehitysideat
-Tässä dokumentissa on mainittu jotakin keskeisiä puutteita, joita sovelluksen mahdollisissa myöhemmissä versioissa tulisi kehittää, jotta sovellus olisi todellisuudessa hyödyllinen työkalu vedonlyöjälle. Tällä hetkellä sovellusta voi lähinnä käyttää yhden tyyppisten vetojen seuraamiseen ja se ei tarjoa juurikaan tilastollisia työkaluja vetojen seuraamiseen.
+Tässä dokumentissa on mainittu joitakin keskeisiä puutteita, joita sovelluksen mahdollisissa myöhemmissä versioissa tulisi kehittää, jotta sovellus olisi todellisuudessa hyödyllinen työkalu vedonlyöjälle. Tällä hetkellä sovellusta voi lähinnä käyttää yhden tyyppisten vetojen seuraamiseen ja se ei tarjoa juurikaan tilastollisia työkaluja vetojen seuraamiseen.
 
 ## Vetotyyppien laajentaminen
 Tällä hetkellä sovelluksessa voi tallentaa ainoastaan vetoja, joissa on kaksi joukkuetta. Erilaisten vetotyyppien, kuten voittajavetojen lisääminen tekisi sovelluksesta hyödyllisemmän.
