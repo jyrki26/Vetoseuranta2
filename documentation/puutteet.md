@@ -5,7 +5,7 @@ Tässä dokumentissa on mainittu jotakin keskeisiä puutteita, joita sovelluksen
 Tällä hetkellä sovelluksessa voi tallentaa ainoastaan vetoja, joissa on kaksi joukkuetta. Erilaisten vetotyyppien, kuten voittajavetojen lisääminen tekisi sovelluksesta hyödyllisemmän.
 
 ## Tilastojen laajentaminen
-Ainoa sovelluksessa oleva tilasto on tällä hetkellä vetojen kokonaismäärää eri tulosten mukaan seuraava tilasto. Todellisuudessa tämä ei ole kovinkaan hyödyllinen tilasto, vaan vedonlyöjän kannalta hyödyllisempiä tilastoja olivat esimerkiksi palautusprosentti, keskimääräinen panos ja mahdollisuus lajitella vetoja esimerkiksi lajien mukaan.
+Ainoat sovelluksessa olevat tilastot ovat tällä hetkellä vetojen kokonaismäärää eri tulosten mukaan seuraava tilasto ja vastaava tilasto joukkueittain. Todellisuudessa tämä ei ole kovinkaan hyödyllinen tilasto, vaan vedonlyöjän kannalta hyödyllisempiä tilastoja olivat esimerkiksi palautusprosentti, keskimääräinen panos ja mahdollisuus lajitella vetoja esimerkiksi lajien mukaan.
 
 ## Vetotyyppien validointi
 Uudelle vedolle voi tällä hetkellä lisätä minkä tahansa vetotyypin mukaisen tasoituksen/vedon. Jatkokehityksessä olisi hyödyllistä näyttää tasoitus/veto niin, että pudotusvalikosta tarjottaisiin ainoastaan kyseisen vetotyypin mukaisia vaihtoehtoja.
