@@ -80,6 +80,36 @@ class Bet(Base):
 
         return response
 
+    @staticmethod
+    def show_bets_per_teams(team_id, account_id, bet_result):
+        stmt = text("SELECT COUNT(bet.result)"
+                     " FROM bet "
+                     " LEFT JOIN Team ON Team.id = Bet.home_team_id OR Team.id = Bet.away_team_id"
+                     " LEFT JOIN Account ON account.id = bet.account_id"
+                     " WHERE Team.id = :team_id AND Account.id = :account_id AND Bet.result = :bet_result").params(team_id = team_id, account_id = account_id, bet_result = bet_result)
+        
+        res = db.engine.execute(stmt)
+        response = []
+        for row in res:
+            response.append({"volume":row[0]})
+
+        return response
+
+    @staticmethod
+    def show_bets_per_all(team_id, account_id):
+        stmt = text("SELECT COUNT(bet.result)"
+                     " FROM bet "
+                     " LEFT JOIN Team ON Team.id = Bet.home_team_id OR Team.id = Bet.away_team_id"
+                     " LEFT JOIN Account ON account.id = bet.account_id"
+                     " WHERE Team.id = :team_id AND Account.id = :account_id AND Bet.result != 4").params(team_id = team_id, account_id = account_id)
+        
+        res = db.engine.execute(stmt)
+        response = []
+        for row in res:
+            response.append({"volume":row[0]})
+
+        return response    
+
 Bet_typeBet_results = db.Table('bet_typeBet_result', Base.metadata,
     db.Column('bet_type', db.Integer, db.ForeignKey('bet_type.id')),
     db.Column('bet_result', db.Integer, db.ForeignKey('bet_result.id'))

@@ -35,5 +35,7 @@ Lisää uusi veto -kohdassa voi lisätä uuden vedon. Vedon tietoihin täytyy sy
 Kun veto on lisätty, se näkyy kohdassa Avoimet vedot. Kohdassa näkyvät vedon tiedot. Kun veto on ratkennut, voi sen tuloksen päivittää tietokantaan tätä kautta valitsemalla tuloksen pudotusvalikosta ja painamalla Lähetä tulos -nappia. Mikäli on kirjannut virheellisen vedon, voi sen myös poistaa tätä kautta valitsemalla pudotusvalikosta Poista veto -valinnan.
 #### Vetohistoria
 Vetohistoria-sivulla voi tarkastella vetoja sen mukaan ovatko ne menneet oikein, väärin vai olleet mitättömiä valitsemalla pudotusvalikoista haluamansa tuloksen ja painamalla Näytä vedot -nappia.
+#### Vetohistoria joukkueittain
+Käyttäjä voi hakea vastaavat historiatiedot kuin edellisessä tapauksessa joukkueittain valitsemalla haluamansa joukkueen ja painamalla Näytä joukkue -nappia.
 #### Yhteenveto
 Tällä sivulla näkyvät vetojen kokonaismäärä sekä oikein ja väärin päättyneiden ja mitätöityjen vetojen määrät.

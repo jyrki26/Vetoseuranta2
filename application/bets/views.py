@@ -4,7 +4,7 @@ from flask_login import current_user
 from application import app, db, login_required
 from application.bets.models import Bet, Bet_type, Bet_result
 from application.teams.models import Team
-from application.bets.forms import BetForm, OpenBetForm, BetSearchForm
+from application.bets.forms import BetForm, OpenBetForm, BetSearchForm, BetsPerTeamForm
 
 @app.route("/bets/", methods=["GET"])
 @login_required(role="ANY")
@@ -61,8 +61,6 @@ def bet_search():
 @login_required(role="ANY")
 def bet_search_results():
     form = BetSearchForm(request.form)
-
-
     d = form.search.data
     if d == 'correct':
         return render_template("bets/search.html", find_results = Bet.find_bet_results(current_user.id, 1), teams = Team.query.all(), bet_types = Bet_type.query.all(), bet_results = Bet_result.query.all(), form = BetSearchForm())
@@ -75,3 +73,25 @@ def bet_search_results():
 @login_required(role="ANY")
 def bet_summary():
     return render_template("bets/summary.html", correct = Bet.show_bet_volumes(current_user.id, 1), failed = Bet.show_bet_volumes(current_user.id, 2), void = Bet.show_bet_volumes(current_user.id, 3), addition = Bet.show_bet_count(current_user.id))
+
+
+@app.route("/bets/bet_teams/<team_id>", methods=["GET", "POST"])
+@login_required(role="ANY")
+def bet_per_teams(team_id = 1):
+    teams = Team.query.order_by(Team.name).all()
+    group_list = [(t.id, t.name) for t in teams]
+    form = BetsPerTeamForm()
+    form.search.choices = group_list
+
+    t = Team.query.filter_by(id = team_id).first()
+
+    correct = Bet.show_bets_per_teams(team_id, current_user.id, 1)
+    failed = Bet.show_bets_per_teams(team_id, current_user.id, 2)
+    void = Bet.show_bets_per_teams(team_id, current_user.id, 3)
+    addition = Bet.show_bets_per_all(team_id, current_user.id)
+    
+    if request.method == 'GET':
+        return render_template("bets/bet_teams.html", correct = correct, failed = failed, void = void, addition = addition, t = t, form = form)
+
+    if request.method == 'POST':
+        return redirect(url_for("bet_per_teams", team_id = form.search.data))

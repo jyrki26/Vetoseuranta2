@@ -53,3 +53,9 @@ class BetSearchForm(FlaskForm):
 
     class Meta:
         csrf = False
+
+class BetsPerTeamForm(FlaskForm):
+    search = SelectField('Joukkue', coerce=int)
+
+    class Meta:
+        csrf = False

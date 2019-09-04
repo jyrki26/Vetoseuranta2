@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<div class="container">
+    <div class="px-0 col-sm-2 col-md-2 col-lg-2">
+        <table class="table table-bordered table table-sm table-striped">
+            <thead>
+               <tr>Näytetään joukkueen <b>{{t}}</b> tilastot</tr>
+            </thead>
+            <tbody>
+                <form method="POST">
+                <td>
+                    {{form.search}}
+                    <td><input type="submit" value="Näytä joukkue" /></td>
+                </td>
+                <tr class="table-active">
+                    <th>Oikein</th>
+                    <th>Väärin</th>
+                    <th>Mitätön</th>
+                    <th>Yhteensä</th>
+                </tr>
+                <tr>
+                     <td>{% for c in correct %} {{c.volume}} {% endfor %}</td>
+                     <td>{% for c in failed %} {{c.volume}} {% endfor %}</td>
+                     <td>{% for c in void %} {{c.volume}} {% endfor %}</td>
+                     <td>{% for c in addition %} {{c.volume}} {% endfor %}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

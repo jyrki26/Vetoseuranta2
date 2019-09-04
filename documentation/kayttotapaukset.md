@@ -58,6 +58,16 @@ FROM bet
 WHERE bet.result = Vedon tuloksen id ORDER BY bet.date_played;
 ```
 
+#### Vetohistoria joukkueittain
+Käyttäjä voi myös vastaavan vetohistorian joukkueittain kuin kaikkien vetojen osalta. Tämä tapahtuu kyselyllä:
+```SQL
+SELECT COUNT(bet.result)
+FROM bet
+LEFT JOIN Team ON Team.id = Bet.home_team_id OR Team.id = Bet.away_team_id
+LEFT JOIN Account ON account.id = bet.account_id
+WHERE Team.id = team_id AND Account.id = account_id AND Bet.result != 4;
+```
+
 #### Yhteenvetokyselyn näyttäminen
 Vetojen kokonaisuuden seuraamiseksi käyttäjälle tulee myös näyttää erilaista tilastotietoa vedoista. Tässä vaiheessa on toteutettu ainoastaan kysely, jossa näytetään kokonaismäärät oikein ja väärin menneistä sekä mitätöidyistä vedoista sekä ratkenneiden vetojen kokonaismäärä. Kysely on seuraava
 ```SQL

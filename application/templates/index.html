@@ -8,6 +8,7 @@
       <a href="{{ url_for('open_bets') }}" class="list-group-item list-group-item-action">Avoimet vedot</a>
       <a href="{{ url_for('bets_form') }}" class="list-group-item list-group-item-action">Lisää uusi veto</a>
       <a href="{{ url_for('bet_search') }}" class="list-group-item list-group-item-action">Vetohistoria</a>
+      <a href="{{ url_for('bet_per_teams', team_id = 1) }}" class="list-group-item list-group-item-action">Vetohistoria joukkueittain</a>
       <a href="{{ url_for('bet_summary') }}" class="list-group-item list-group-item-action">Yhteenveto</a>
     </div>
   </div>
