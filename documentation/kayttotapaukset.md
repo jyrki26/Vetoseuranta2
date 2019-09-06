@@ -65,7 +65,7 @@ SELECT COUNT(bet.result)
 FROM bet
 LEFT JOIN Team ON Team.id = Bet.home_team_id OR Team.id = Bet.away_team_id
 LEFT JOIN Account ON account.id = bet.account_id
-WHERE Team.id = team_id AND Account.id = account_id AND Bet.result != 4;
+WHERE Team.id = team_id AND Account.id = account_id AND Bet.result = bet_result;
 ```
 
 #### Yhteenvetokyselyn näyttäminen
